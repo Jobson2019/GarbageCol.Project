@@ -38,5 +38,14 @@ namespace GarbageCollectProject.Models
         [Display(Name = "End")]
         public DateTime EndDate { get; set; }
 
+        [Display(Name = "Extra Pickup Day")]
+        public string ExtraPickupDay { get; set; } = null;
+        
+        [Display(Name = "Change Pickup Day")] 
+        public DateTime ChangeDay { get; set; }
+
+
+        
+
     }
 }
