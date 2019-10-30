@@ -65,7 +65,9 @@ namespace GarbageCollectProject.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display()]
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

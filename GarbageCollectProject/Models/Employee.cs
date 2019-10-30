@@ -22,5 +22,8 @@ namespace GarbageCollectProject.Models
         
         [Display(Name = "Title")]
         public string Title { get; set; }
+
+        [EmailAddress]
+        public string EmailAddress { get; set; }
     }
 }
