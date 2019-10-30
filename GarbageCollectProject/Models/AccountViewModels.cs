@@ -65,6 +65,8 @@ namespace GarbageCollectProject.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display()]
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
