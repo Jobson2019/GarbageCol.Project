@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GarbageCollectProject.Models;
 
 namespace GarbageCollectProject.Controllers
 {   
@@ -35,15 +36,16 @@ namespace GarbageCollectProject.Controllers
             return View();
         }
 
-        public Boolean isEmployeeUser()
+        public bool isEmployeeUser()
         {
             if (User.Identity.IsAuthenticated)
             {
-                var user = User.Identity;
+                var user = User.Identity.GetUserId();
                 ApplicationDbContext context = new ApplicationDbContext();
                 var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-                var s = UserManager.GetRoles(user.GetUserId());
-                if (s[0].ToString() == "Employee")
+                var s = UserManager.GetRoles(user);
+                var x = s.ToList();
+                if (x[0].ToString() == "Employee")
                 {
                     return true;
                 }

@@ -160,7 +160,7 @@ namespace GarbageCollectProject.Controllers
                    new {value = 2, text = "Employee"}
                });
                 ViewBag.Name = userRole;
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserRoles = model.UserRoles };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

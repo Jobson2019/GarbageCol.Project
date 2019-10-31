@@ -3,10 +3,45 @@ namespace GarbageCollectProject.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigration : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Customers",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        StreetAddress = c.String(),
+                        City = c.String(),
+                        State = c.String(),
+                        ZipCode = c.Int(nullable: false),
+                        PickUpDay = c.DateTime(nullable: false),
+                        Balance = c.Double(nullable: false),
+                        MonthlyCharge = c.Double(nullable: false),
+                        PickupConfirmed = c.Boolean(nullable: false),
+                        StartDate = c.DateTime(nullable: false),
+                        EndDate = c.DateTime(nullable: false),
+                        ExtraPickupDay = c.String(),
+                        ChangeDay = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Employees",
+                c => new
+                    {
+                        id = c.Int(nullable: false, identity: true),
+                        FirstName = c.String(),
+                        LastName = c.String(),
+                        ZipCode = c.String(),
+                        Title = c.String(),
+                        EmailAddress = c.String(),
+                    })
+                .PrimaryKey(t => t.id);
+            
             CreateTable(
                 "dbo.AspNetRoles",
                 c => new
@@ -94,6 +129,8 @@ namespace GarbageCollectProject.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Employees");
+            DropTable("dbo.Customers");
         }
     }
 }
