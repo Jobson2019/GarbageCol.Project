@@ -9,7 +9,7 @@ namespace GarbageCollectProject.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(GarbageCollectProject.Models.ApplicationDbContext context)
