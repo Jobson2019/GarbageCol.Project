@@ -51,6 +51,9 @@ namespace GarbageCollectProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                customer.ApplicationId = User.Identity.GetUserId();
+                customer.WeeklyCharge = 10;
+                customer.Balance = 0;
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -77,18 +80,41 @@ namespace GarbageCollectProject.Controllers
         // POST: Customers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Id")] Customer customer)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(customer).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(customer);
+        //}
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id")] Customer customer)
+        public ActionResult Edit(int id, Customer customer)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(customer).State = EntityState.Modified;
+                Customer editCustomer = db.Customers.Find(id);
+                editCustomer.FirstName = customer.FirstName;
+                editCustomer.LastName = customer.LastName;
+                editCustomer.StreetAddress = customer.StreetAddress;
+                editCustomer.ZipCode = customer.ZipCode;
+                editCustomer.OneTimePickupDate = customer.OneTimePickupDate;
+                editCustomer.WeeklyPickupDay = customer.WeeklyPickupDay;
+                editCustomer.HoldPickupStart = customer.HoldPickupStart;
+                editCustomer.HoldPickupEnd = customer.HoldPickupEnd;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Customers", new { id = editCustomer.Id });
             }
-            return View(customer);
+            catch
+            {
+                return View();
+            }
         }
+
 
         // GET: Customers/Delete/5
         public ActionResult Delete(int? id)

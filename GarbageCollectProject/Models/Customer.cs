@@ -39,8 +39,8 @@ namespace GarbageCollectProject.Models
         public DateTime? PickUpDay { get; set; }
         [Display(Name = "Balance")]
         public double Balance { get; set; }
-        [Display(Name = "Monthly Charge")]
-        public double MonthlyCharge { get; set; }
+        [Display(Name = "WeeklyCharge")]
+        public double WeeklyCharge { get; set; }
         [Display(Name = "Pickup Confirmed")]
         public bool PickupConfirmed { get; set; }
         [Display(Name = "Start")]
@@ -55,6 +55,16 @@ namespace GarbageCollectProject.Models
         public DateTime? ChangeDay { get; set; }
         [Display(Name = "User Name")]
         public string UserName { get; set; }
+        [Display(Name = "One Time Pickup Date")]
+        public DateTime? OneTimePickupDate { get; set; }
+        [Display(Name = "One Time Pickup Day")]
+        public DateTime? OneTimePickupDay { get; set; }
+        [Display(Name = "Weekly Pickup Day")]
+        public DateTime? WeeklyPickupDay { get; set; }
+        [Display(Name = "Hold Pickup Start")]
+        public DateTime? HoldPickupStart { get; set; }
+        [Display(Name = "Hold Pickup End")]
+        public DateTime? HoldPickupEnd { get; set; }
 
         // Foreign key broken
         [ForeignKey("ApplicationUser")]

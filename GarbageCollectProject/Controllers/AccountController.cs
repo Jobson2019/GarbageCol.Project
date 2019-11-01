@@ -154,12 +154,12 @@ namespace GarbageCollectProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var userRole = new SelectList(new[]
-                {
-                   new {value = 1, text = "Customer"},
-                   new {value = 2, text = "Employee"}
-               });
-                ViewBag.Name = userRole;
+               // var userRole = new SelectList(new[]
+               // {
+               //    new {value = 1, text = "Customer"},
+               //    new {value = 2, text = "Employee"}
+               //});
+               // ViewBag.Name = userRole;
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserRoles = model.UserRoles };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
