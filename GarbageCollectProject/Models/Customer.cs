@@ -55,7 +55,9 @@ namespace GarbageCollectProject.Models
         public DateTime? ChangeDay { get; set; }
         [Display(Name = "User Name")]
         public string UserName { get; set; }
-        [ForeignKey("AppUser")]
+
+        // Foreign key broken
+        [ForeignKey("ApplicationUser")]
         public string ApplicationId { get; set; }
         public ApplicationUser ApplicationUser {get; set; }
 
