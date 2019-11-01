@@ -9,12 +9,15 @@
 {
     <h1>Welcome User. Now you can create user Role.</h1>
     <h3>
-        <li>@Html.ActionLink("Manage Role", "Index", "Role")</li>
+        <li>@Html.ActionLink("Employee Stuff", "Index", "Role")</li>
     </h3>
 
 }
 else
 {
-    <h2>  Welcome <strong>@ViewBag.Name</strong>User Module </h2>
+    <h2>  Welcome Customer <strong>@ViewBag.Name</strong>User Module </h2>
+    <li>@Html.ActionLink("Schedule Extra Pick-up", "Create", "Customers")</li>
+    <li>@Html.ActionLink("Check Balance", "Create", "Customers")</li>
+    <li>@Html.ActionLink("Edit", "", "Customers")</li>
     <li>@Html.ActionLink("Setup", "Create", "Customers")</li>
 }  

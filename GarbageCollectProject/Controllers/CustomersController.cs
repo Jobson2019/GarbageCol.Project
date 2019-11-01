@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GarbageCollectProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace GarbageCollectProject.Controllers
 {
@@ -123,5 +124,28 @@ namespace GarbageCollectProject.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //edit pickup
+
+
+        
+        
+        public ActionResult EditPickup()
+        {
+            string userId = User.Identity.GetUserId();
+            Customer customer = db.Customers.FirstOrDefault(c => c.ApplicationId == userId);
+            return View(customer);
+             
+        }
+
+
+
+
+        //One Time Pick-up
+
+
+        //check balance
+
+
     }
 }

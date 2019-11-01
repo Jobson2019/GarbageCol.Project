@@ -50,11 +50,14 @@ namespace GarbageCollectProject.Models
 
         [Display(Name = "Extra Pickup Day")]
         public string ExtraPickupDay { get; set; } = null;
-        
-        [Display(Name = "Change Pickup Day")] 
+
+        [Display(Name = "Change Pickup Day")]
         public DateTime? ChangeDay { get; set; }
         [Display(Name = "User Name")]
         public string UserName { get; set; }
+        [ForeignKey("AppUser")]
+        public string ApplicationId { get; set; }
+        public ApplicationUser ApplicationUser {get; set; }
 
 
         
