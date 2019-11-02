@@ -8,15 +8,7 @@ using System.Web;
 namespace GarbageCollectProject.Models
 {
 
-    //public enum DayOfTheWeek
-    //{
-    //    Monday;
-    //    Tuesday;
-    //    Wednesday;
-    //    Thursday;
-    //    Friday;
-
-    //}
+    
     public class Customer
     {
         [Key]
@@ -34,7 +26,7 @@ namespace GarbageCollectProject.Models
         [Display(Name = "State")]
         public string State { get; set; }
         [Display(Name = "Zip Code")]
-        public int ZipCode { get; set; }
+        public string ZipCode { get; set; }
         [Display(Name = "Pick Up Day")]
         public DateTime? PickUpDay { get; set; }
         [Display(Name = "Balance")]
@@ -47,6 +39,8 @@ namespace GarbageCollectProject.Models
         public DateTime? StartDate { get; set; }
         [Display(Name = "End")]
         public DateTime? EndDate { get; set; }
+        [Display(Name = "Weekly Pickup Day")]
+        public DateTime? WeeklyPickupDay { get; set; }
 
         [Display(Name = "Extra Pickup Day")]
         public string ExtraPickupDay { get; set; } = null;
@@ -60,11 +54,13 @@ namespace GarbageCollectProject.Models
         [Display(Name = "One Time Pickup Day")]
         public DateTime? OneTimePickupDay { get; set; }
         [Display(Name = "Weekly Pickup Day")]
-        public DateTime? WeeklyPickupDay { get; set; }
-        [Display(Name = "Hold Pickup Start")]
         public DateTime? HoldPickupStart { get; set; }
         [Display(Name = "Hold Pickup End")]
         public DateTime? HoldPickupEnd { get; set; }
+        [Display(Name = "Next Pickup")]
+        public DateTime? NextPickup { get; set; }
+        [Display(Name = "Last Pickup")]
+        public DateTime? LastPickup { get; set; }
 
         // Foreign key broken
         [ForeignKey("ApplicationUser")]

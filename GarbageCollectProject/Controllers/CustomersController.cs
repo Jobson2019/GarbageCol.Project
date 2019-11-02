@@ -163,6 +163,16 @@ namespace GarbageCollectProject.Controllers
             return View(customer);
              
         }
+        [HttpPost]
+        public ActionResult Details(Customer customer)
+        {
+            Customer foundCustomer = db.Customers.Where(c => c.UserName == customer.UserName).FirstOrDefault();
+            foundCustomer.NextPickup = DateTime.Today.AddDays(7);
+            foundCustomer.LastPickup = DateTime.Today;
+            db.SaveChanges();
+
+            return View(customer);
+        }
 
 
 

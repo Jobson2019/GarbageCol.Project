@@ -1,32 +1,76 @@
 ﻿@model IEnumerable<GarbageCollectProject.Models.Customer>
 
-{
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StreetAddress)
+        </th>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        
+        @*<th>
+                @Html.DisplayNameFor(model => model.ApplicationId)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
     {
-        ViewBag.Title = "Home Page";
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.StreetAddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ZipCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Balance)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ApplicationId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WeeklyPickupDay)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NextPickup)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LastPickup)
+    </td>
+
+    <td>
+        @Html.ActionLink("Confirm Pick Up", "ConfirmPickUp", "Customers", new { id = item.Id }, null)
+    </td>
+
+</tr>
     }
 
-    <div class="jumbotron">
-        <h1>Garbage Collection Customer Page</h1>
-        <p class="lead">Let us grab yo trash</p>
-        @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Welcome Valued Customer</h2>
-            <p>
-               
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>We would love for you to be our customer!</h2>
-            
-            
-        @*</div>
-        <div class="col-md-4">
-            <h2>Hosting Jacob's mom</h2>
-            <p>You can easily bang Jacob's mom</p>*@
-
-        </div>
-    </div>
+</table>

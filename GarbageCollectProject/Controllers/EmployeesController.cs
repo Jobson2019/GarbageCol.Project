@@ -17,7 +17,9 @@ namespace GarbageCollectProject.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            return View(db.Employees.ToList());
+            var currentUser = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            var foundZip = db.Employees.Where(e => e.EmailAddress == currentUser).FirstOrDefault();
+            return View(db.Customers.Where(c => c.ZipCode == foundZip.ZipCode).ToList());
         }
 
         // GET: Employees/Details/5
@@ -123,6 +125,8 @@ namespace GarbageCollectProject.Controllers
             }
             base.Dispose(disposing);
         }
+
+       
 
         //manage role
 
