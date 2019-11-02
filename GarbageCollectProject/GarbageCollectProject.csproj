@@ -193,6 +193,10 @@
     <Compile Include="Migrations\201911011930299_migfive.Designer.cs">
       <DependentUpon>201911011930299_migfive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911021831190_migsix.cs" />
+    <Compile Include="Migrations\201911021831190_migsix.Designer.cs">
+      <DependentUpon>201911021831190_migsix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911011930299_migfive.resx">
       <DependentUpon>201911011930299_migfive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911021831190_migsix.resx">
+      <DependentUpon>201911021831190_migsix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
