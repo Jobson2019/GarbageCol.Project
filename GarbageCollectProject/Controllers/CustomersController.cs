@@ -169,6 +169,7 @@ namespace GarbageCollectProject.Controllers
             Customer foundCustomer = db.Customers.Where(c => c.UserName == customer.UserName).FirstOrDefault();
             foundCustomer.NextPickup = DateTime.Today.AddDays(7);
             foundCustomer.LastPickup = DateTime.Today;
+            foundCustomer.Balance += foundCustomer.WeeklyCharge;
             db.SaveChanges();
 
             return View(customer);
