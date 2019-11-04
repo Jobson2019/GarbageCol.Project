@@ -201,6 +201,10 @@
     <Compile Include="Migrations\201911021904022_migseven.Designer.cs">
       <DependentUpon>201911021904022_migseven.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911031922025_migeight.cs" />
+    <Compile Include="Migrations\201911031922025_migeight.Designer.cs">
+      <DependentUpon>201911031922025_migeight.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -314,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911021904022_migseven.resx">
       <DependentUpon>201911021904022_migseven.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911031922025_migeight.resx">
+      <DependentUpon>201911031922025_migeight.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
